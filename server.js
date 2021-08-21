@@ -76,11 +76,6 @@ app.use('/certificate', certificate);
 app.use(errorHandler)
 
 
-const PORT = process.env.PORT || 3000;
-
-const server = app.listen(PORT, () => {
-    console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold);
-});
 
 //handle Unhandled promise rejection
 
@@ -89,3 +84,5 @@ process.on('unhandledRejection', (err, promise) => {
     //close server and exit process
     server.close(() => process.exit(1));
 })
+
+module.exports = app
